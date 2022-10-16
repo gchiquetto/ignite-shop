@@ -18,6 +18,7 @@ export const Product = styled('a', {
   alignContent: 'çenter',
   justifyContent: 'center',
   overflow: 'hidden',
+  cursor: 'pointer',
 
   img: {
     objectFit: 'cover',
