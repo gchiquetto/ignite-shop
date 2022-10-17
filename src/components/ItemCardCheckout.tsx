@@ -13,6 +13,7 @@ interface ProductDataType {
     imageUrl: string
     price: string
     defaultPriceId: string
+    numericPrice: number
   }
 }
 

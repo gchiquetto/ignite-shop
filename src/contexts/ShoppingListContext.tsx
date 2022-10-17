@@ -28,7 +28,17 @@ export function ShoppingListContextProvider({
   const currentProducts = selectedProductsState.products
 
   function addNewProduct(product: ProductType) {
-    dispatch({ type: ActionTypes.ADD_PRODUCT, payload: product })
+    if (currentProducts.length > 0) {
+      const productAlredyAdded = currentProducts.find(
+        (currentProduct) =>
+          currentProduct.defaultPriceId === product.defaultPriceId,
+      )
+      if (!productAlredyAdded) {
+        dispatch({ type: ActionTypes.ADD_PRODUCT, payload: product })
+      }
+    } else {
+      dispatch({ type: ActionTypes.ADD_PRODUCT, payload: product })
+    }
   }
 
   function removeSelectedProduct(product: ProductType) {
