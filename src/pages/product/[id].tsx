@@ -10,8 +10,9 @@ import { stripe } from '../../lib/stripe'
 import Stripe from 'stripe'
 import { useRouter } from 'next/router'
 import axios from 'axios'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import Head from 'next/head'
+import { ShoppingListContext } from '../../contexts/ShoppingListContext'
 
 interface ProductProps {
   product: {
@@ -25,6 +26,7 @@ interface ProductProps {
 }
 
 export default function Product({ product }: ProductProps) {
+  const { addNewProduct } = useContext(ShoppingListContext)
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
   const { isFallback } = useRouter()
@@ -48,6 +50,10 @@ export default function Product({ product }: ProductProps) {
     }
   }
 
+  function handleAddProductToShoppingCart() {
+    addNewProduct(product.defaultPriceId)
+  }
+
   return (
     <>
       <Head>
@@ -68,7 +74,8 @@ export default function Product({ product }: ProductProps) {
           <p>{product.description}</p>
           <button
             disabled={isCreatingCheckoutSession}
-            onClick={handleBuyProduct}
+            // onClick={handleBuyProduct}
+            onClick={handleAddProductToShoppingCart}
           >
             Add to shopping list
           </button>
