@@ -22,11 +22,12 @@ interface ProductProps {
     price: string
     description: string
     defaultPriceId: string
+    numericPrice: number
   }
 }
 
 export default function Product({ product }: ProductProps) {
-  const { addNewProduct } = useContext(ShoppingListContext)
+  const { currentProducts, addNewProduct } = useContext(ShoppingListContext)
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
     useState(false)
   const { isFallback } = useRouter()
@@ -56,6 +57,7 @@ export default function Product({ product }: ProductProps) {
       imageUrl: product.imageUrl,
       price: product.price,
       defaultPriceId: product.defaultPriceId,
+      numericPrice: product.numericPrice,
     }
     addNewProduct(newProduct)
   }
@@ -131,6 +133,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
           }).format(price.unit_amount / 100),
         description: product.description,
         defaultPriceId: price.id,
+        numericPrice: price.unit_amount,
       },
     },
     revalidate: 60 * 60 * 1, // 1hour

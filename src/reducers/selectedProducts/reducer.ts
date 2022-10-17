@@ -5,6 +5,7 @@ export interface ProductType {
   imageUrl: string
   price: string
   defaultPriceId: string
+  numericPrice: number
 }
 
 interface SelectedProductsState {
