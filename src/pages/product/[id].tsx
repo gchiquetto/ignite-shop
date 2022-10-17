@@ -51,7 +51,7 @@ export default function Product({ product }: ProductProps) {
   return (
     <>
       <Head>
-        <title>{product.name} | Ignite Shop</title>
+        <title>{`${product.name} | Ignite Shop`}</title>
       </Head>
       <ProductContainer>
         <ImageContainer>
@@ -70,7 +70,7 @@ export default function Product({ product }: ProductProps) {
             disabled={isCreatingCheckoutSession}
             onClick={handleBuyProduct}
           >
-            Buy now
+            Add to shopping list
           </button>
         </ProductDescriptionContainer>
       </ProductContainer>
