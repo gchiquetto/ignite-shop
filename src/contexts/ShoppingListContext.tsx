@@ -1,15 +1,18 @@
 import { createContext, ReactNode, useReducer } from 'react'
 import { ActionTypes } from '../reducers/selectedProducts/actions'
-import { selectectProductsReducer } from '../reducers/selectedProducts/reducer'
+import {
+  ProductType,
+  selectectProductsReducer,
+} from '../reducers/selectedProducts/reducer'
 
 interface ShoppingListContextProviderProps {
   children: ReactNode
 }
 
 interface ShoppingListType {
-  currentProducts: string[]
-  addNewProduct: (productId: string) => void
-  removeSelectedProduct: (productId: string) => void
+  currentProducts: ProductType[]
+  addNewProduct: (productId: ProductType) => void
+  removeSelectedProduct: (productId: ProductType) => void
 }
 
 export const ShoppingListContext = createContext({} as ShoppingListType)
@@ -24,13 +27,12 @@ export function ShoppingListContextProvider({
 
   const currentProducts = selectedProductsState.products
 
-  function addNewProduct(productId: string) {
-    console.log(currentProducts)
-    dispatch({ type: ActionTypes.ADD_PRODUCT, payload: productId })
+  function addNewProduct(product: ProductType) {
+    dispatch({ type: ActionTypes.ADD_PRODUCT, payload: product })
   }
 
-  function removeSelectedProduct(productId: string) {
-    dispatch({ type: ActionTypes.REMOVE_PRODUCT, payload: productId })
+  function removeSelectedProduct(product: ProductType) {
+    dispatch({ type: ActionTypes.REMOVE_PRODUCT, payload: product })
   }
 
   return (

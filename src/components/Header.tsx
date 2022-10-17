@@ -13,6 +13,8 @@ import { Handbag, X } from 'phosphor-react'
 import ItemCardCheckout from './ItemCardCheckout'
 import { useContext, useState } from 'react'
 import { ShoppingListContext } from '../contexts/ShoppingListContext'
+import { GetServerSideProps } from 'next'
+// import { stripe } from '../lib/stripe'
 
 export default function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -39,7 +41,9 @@ export default function Header() {
           <ShoppingListContent>
             <h2>Shopping Cart</h2>
             <ItemsCardContainer>
-              <ItemCardCheckout />
+              {currentProducts.map((product) => (
+                <ItemCardCheckout key={product.defaultPriceId} data={product} />
+              ))}
             </ItemsCardContainer>
             <SummaryContainer>
               <div>
@@ -58,3 +62,5 @@ export default function Header() {
     </HeaderContainer>
   )
 }
+
+// export const getServerSideProps: GetServerSideProps = async () => {}
