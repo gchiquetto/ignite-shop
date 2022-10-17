@@ -51,7 +51,13 @@ export default function Product({ product }: ProductProps) {
   }
 
   function handleAddProductToShoppingCart() {
-    addNewProduct(product.defaultPriceId)
+    const newProduct = {
+      name: product.name,
+      imageUrl: product.imageUrl,
+      price: product.price,
+      defaultPriceId: product.defaultPriceId,
+    }
+    addNewProduct(newProduct)
   }
 
   return (
