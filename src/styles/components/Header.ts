@@ -20,6 +20,29 @@ export const HeaderContainer = styled('header', {
 
     svg: { color: '$gray-300' },
   },
+
+  '.cart-button': {
+    position: 'relative',
+  },
+})
+
+export const QuantityContainer = styled('div', {
+  position: 'absolute',
+  width: '1.5rem',
+  height: '1.5rem',
+  top: '-8px',
+  right: '-8.35px',
+  zIndex: 2,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '50%',
+  boxSizing: 'content-box',
+  border: '3px solid $gray-800',
+  backgroundColor: '$green',
+  color: '$white',
+  fontSize: '0.875rem',
+  fontWeight: 700,
 })
 
 export const ShoppingListContainer = styled('nav', {

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {
   HeaderContainer,
   ItemsCardContainer,
+  QuantityContainer,
   ShoppingListContainer,
   ShoppingListContent,
   SummaryContainer,
@@ -10,17 +11,24 @@ import Image from 'next/future/image'
 import logo from '../assets/logo.svg'
 import { Handbag, X } from 'phosphor-react'
 import ItemCardCheckout from './ItemCardCheckout'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ShoppingListContext } from '../contexts/ShoppingListContext'
 
 export default function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false)
+  const { currentProducts } = useContext(ShoppingListContext)
 
   return (
     <HeaderContainer>
       <Link href="/">
         <Image src={logo} alt="" />
       </Link>
-      <button onClick={() => setNavbarOpen(true)}>
+      <button className="cart-button" onClick={() => setNavbarOpen(true)}>
+        {currentProducts.length > 0 && (
+          <QuantityContainer>
+            <p>{currentProducts.length}</p>
+          </QuantityContainer>
+        )}
         <Handbag size={24} />
       </button>
       {navbarOpen && (
