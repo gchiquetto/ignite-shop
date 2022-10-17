@@ -6,14 +6,17 @@ export const HomeContainer = styled('main', {
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2))',
   marginLeft: 'auto',
   minHeight: '38rem',
+  a: {
+    textDecoration: 'none',
+    color: '$gray-200',
+  },
 })
 
-export const Product = styled('a', {
+export const Product = styled('div', {
   background: 'linear-gradient(180deg, #1ea483 0%, #7464d4 100%)',
   borderRadius: 8,
   padding: '0.25rem',
   position: 'relative',
-
   display: 'flex',
   alignContent: 'çenter',
   justifyContent: 'center',
@@ -26,7 +29,7 @@ export const Product = styled('a', {
 
   footer: {
     position: 'absolute',
-    bottom: '0.25rem',
+    bottom: '0.75rem',
     left: '0.25rem',
     right: '0.25rem',
     padding: '2rem',
