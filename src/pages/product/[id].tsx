@@ -11,6 +11,7 @@ import Stripe from 'stripe'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useState } from 'react'
+import Head from 'next/head'
 
 interface ProductProps {
   product: {
@@ -48,19 +49,32 @@ export default function Product({ product }: ProductProps) {
   }
 
   return (
-    <ProductContainer>
-      <ImageContainer>
-        <Image src={product.imageUrl} width={520} height={480} alt={''}></Image>
-      </ImageContainer>
-      <ProductDescriptionContainer>
-        <h1>{product.name}</h1>
-        <h2>{product.price}</h2>
-        <p>{product.description}</p>
-        <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>
-          Buy now
-        </button>
-      </ProductDescriptionContainer>
-    </ProductContainer>
+    <>
+      <Head>
+        <title>{product.name} | Ignite Shop</title>
+      </Head>
+      <ProductContainer>
+        <ImageContainer>
+          <Image
+            src={product.imageUrl}
+            width={520}
+            height={480}
+            alt={''}
+          ></Image>
+        </ImageContainer>
+        <ProductDescriptionContainer>
+          <h1>{product.name}</h1>
+          <h2>{product.price}</h2>
+          <p>{product.description}</p>
+          <button
+            disabled={isCreatingCheckoutSession}
+            onClick={handleBuyProduct}
+          >
+            Buy now
+          </button>
+        </ProductDescriptionContainer>
+      </ProductContainer>
+    </>
   )
 }
 
@@ -74,6 +88,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<any, { id: string }> = async ({
   params,
 }) => {
+  if (!params) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
   const productId = params.id
 
   const product = await stripe.products.retrieve(productId, {
