@@ -13,7 +13,6 @@ import { Handbag, X } from 'phosphor-react'
 import ItemCardCheckout from './ItemCardCheckout'
 import { useContext, useState } from 'react'
 import { ShoppingListContext } from '../contexts/ShoppingListContext'
-import { GetServerSideProps } from 'next'
 import axios from 'axios'
 
 export default function Header() {

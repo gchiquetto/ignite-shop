@@ -24,6 +24,10 @@ export const HeaderContainer = styled('header', {
   '.cart-button': {
     position: 'relative',
   },
+
+  '@media (max-width: 1200px)': {
+    padding: '2rem',
+  },
 })
 
 export const QuantityContainer = styled('div', {
@@ -58,6 +62,10 @@ export const ShoppingListContainer = styled('nav', {
   display: 'flex',
   flexDirection: 'column',
   padding: '1.5rem',
+
+  '@media (max-width: 480px)': {
+    minWidth: '100%',
+  },
 
   '.close_button': {
     alignSelf: 'end',

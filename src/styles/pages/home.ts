@@ -10,6 +10,10 @@ export const HomeContainer = styled('main', {
     textDecoration: 'none',
     color: '$gray-200',
   },
+
+  '@media (max-width: 1200px)': {
+    padding: '2rem',
+  },
 })
 
 export const Product = styled('div', {
@@ -25,6 +29,17 @@ export const Product = styled('div', {
 
   img: {
     objectFit: 'cover',
+    width: 520,
+    height: 480,
+
+    '@media (max-width: 998px)': {
+      width: 480,
+      height: 440,
+    },
+    '@media (max-width: 680px)': {
+      width: 440,
+      height: 400,
+    },
   },
 
   footer: {
@@ -46,13 +61,36 @@ export const Product = styled('div', {
 
     backgroundColor: 'rgba(0,0,0,0.6)',
 
+    div: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 4,
+    },
     strong: {
-      fontSize: '$md',
+      fontSize: '$sm',
     },
 
     span: {
-      fontSize: '$lg',
+      fontSize: '$md',
       color: '$green-light',
+    },
+
+    '.cart-button': {
+      background: '$green',
+      border: 0,
+      borderRadius: 6,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '0.75rem',
+      cursor: 'pointer',
+
+      svg: { color: '$white' },
+
+      '&:hover': {
+        background: '$green-light',
+        transition: 'all 0.2s ease',
+      },
     },
   },
 
