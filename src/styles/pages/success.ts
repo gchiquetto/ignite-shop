@@ -41,14 +41,23 @@ export const SuccessContainer = styled('main', {
   },
 })
 
+export const ProductsImagesContainer = styled('div', {
+  display: 'flex',
+})
+
 export const ImageContainer = styled('div', {
-  borderRadius: 8,
+  borderRadius: '50%',
   background: 'linear-gradient(180deg, #1EA483 0%, #7465D4 100%)',
   width: '8rem',
   height: '9rem',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+  boxShadow: '0px 0px 60px rgba(0, 0, 0, 0.8)',
+
+  '&:not(:first-child)': {
+    marginLeft: '-3rem',
+  },
 
   img: {
     objectFit: 'cover',

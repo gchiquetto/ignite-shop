@@ -36,21 +36,6 @@ export default function Product({ product }: ProductProps) {
     return <p>Loading...</p>
   }
 
-  // async function handleBuyProduct() {
-  //   try {
-  //     setIsCreatingCheckoutSession(true)
-  //     const response = await axios.post('/api/checkout', {
-  //       priceId: product.defaultPriceId,
-  //     })
-
-  //     const { checkoutUrl } = response.data
-  //     window.location.href = checkoutUrl
-  //   } catch (err) {
-  //     setIsCreatingCheckoutSession(false)
-  //     alert('Fail to redirect to checkout')
-  //   }
-  // }
-
   function handleAddProductToShoppingCart() {
     const newProduct = {
       name: product.name,
@@ -82,7 +67,6 @@ export default function Product({ product }: ProductProps) {
           <p>{product.description}</p>
           <button
             disabled={isCreatingCheckoutSession}
-            // onClick={handleBuyProduct}
             onClick={handleAddProductToShoppingCart}
           >
             Add to shopping list

@@ -21,12 +21,6 @@ export default async function handler(
     line_items: priceIdList.map((item: string) => {
       return { price: item, quantity: 1 }
     }),
-    // line_items: [
-    //   {
-    //     price: priceId,
-    //     quantity: 1,
-    //   },
-    // ],
   })
 
   return res.status(201).json({ checkoutUrl: checkoutSession.url })
