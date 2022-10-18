@@ -14,6 +14,7 @@ import ItemCardCheckout from './ItemCardCheckout'
 import { useContext, useState } from 'react'
 import { ShoppingListContext } from '../contexts/ShoppingListContext'
 import { GetServerSideProps } from 'next'
+import axios from 'axios'
 
 export default function Header() {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -21,6 +22,8 @@ export default function Header() {
   const priceList = currentProducts.map((product) => {
     return product.numericPrice / 100
   })
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
+    useState(false)
 
   const totalValue =
     priceList.length > 0
@@ -33,6 +36,24 @@ export default function Header() {
     style: 'currency',
     currency: 'EUR',
   }).format(totalValue)
+
+  async function handleBuyProduct() {
+    try {
+      setIsCreatingCheckoutSession(true)
+      const itemsPriceIdList = currentProducts.map(
+        (currentProduct) => currentProduct.defaultPriceId,
+      )
+      const response = await axios.post('/api/checkout', {
+        priceIdList: itemsPriceIdList,
+      })
+
+      const { checkoutUrl } = response.data
+      window.location.href = checkoutUrl
+    } catch (err) {
+      setIsCreatingCheckoutSession(false)
+      alert('Fail to redirect to checkout')
+    }
+  }
 
   return (
     <HeaderContainer>
@@ -69,7 +90,13 @@ export default function Header() {
                 <strong className="total_price">{formattedTotalPrice}</strong>
               </div>
             </SummaryContainer>
-            <button className="checkout_button">Checkout</button>
+            <button
+              disabled={isCreatingCheckoutSession}
+              onClick={handleBuyProduct}
+              className="checkout_button"
+            >
+              Checkout
+            </button>
           </ShoppingListContent>
         </ShoppingListContainer>
       )}
