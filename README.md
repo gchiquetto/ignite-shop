@@ -1,34 +1,42 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+    <img alt="Ignite Shop App Cover - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666523982/ignite%20shop/igniteshop_cover_n8rpn3.png" />
+    <br>
+    Ignite Shop
+</h1>
 
-## Getting Started
+## :rocket: Technologies
 
-First, run the development server:
+-  [React](https://github.com/facebook/react)
+-  [Next.js](https://github.com/vercel/next.js)
+-  [Phosphor Icons](https://github.com/phosphor-icons/phosphor-home)
+-  [TypeScript](https://github.com/microsoft/TypeScript)
+-  [Axios](https://github.com/axios/axios)
+-  [Stitchess](https://github.com/stitchesjs/stitches)
+-  [React Hook Form](https://github.com/react-hook-form/react-hook-form)
+-  [ESLint](https://github.com/eslint/eslint)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## :sparkles: Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Add a product to the shopping cart from the home page 
+- Add a product to the shopping cart from the product page
+- Slider with products
+- Integration with Stripe (retrieve products from Stripe and use Stripe checkout page)
+- Remove products from the shopping cart
+- Sum of the total price based on selected items
+- Quantity of selected products on the navbar
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## :stars: Screenshots
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<p float="left" align="center">
+    <img alt="Ignite Shop - Home Page - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666523996/ignite%20shop/ignite-shop_mnal8e.png" width="400" height="300"/>
+    <img alt="Ignite Shop - Product Page - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666524195/ignite%20shop/ignite-shop_product_page_xlt1wk.png" width="400" height="300" />
+</p>
+<p float="left" align="center">
+    <img alt="Ignite Shop - Shopping cart - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666524195/ignite%20shop/ignite-shop_shopping_cart_tqqwfs.png"  width="400" height="300"/>
+    <img alt="Ignite Shop - Checkout page on Stripe website - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666524195/ignite%20shop/ignite-shop_stripe_checkout_myjqlm.png"  width="400" height="300"/>
+</p>
+<p float="left" align="center">
+    <img alt="Ignite Shop - Success Page - Github Repo" src="https://res.cloudinary.com/dxetg4hmh/image/upload/v1666524473/ignite%20shop/ignite-shop_success_page_ew9dcz.png"  width="400" height="300"/>
+</p>
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
